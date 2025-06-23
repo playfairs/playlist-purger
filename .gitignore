@@ -1,0 +1,16 @@
+# enviornment variables
+.env
+/.env.local
+/.env.development.local
+/.venv
+/venv
+venv/
+.venv/
+.venv
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
