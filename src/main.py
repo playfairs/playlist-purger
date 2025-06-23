@@ -1,4 +1,5 @@
 import os
+import re
 import spotipy
 
 from dotenv import load_dotenv
@@ -19,7 +20,7 @@ def extract_playlist_id(url: str) -> str:
     match = re.search(r'playlist/([a-sA-Z0-9]+)', url)
     return match.group(1) if match else None
 
-def purge_dupes(playlist_id, official_artist=None, threshold=90)
+def purge_dupes(playlist_id, official_artist=None, threshold=90):
     seen = set()
     keep_tracks_urls = []
 
@@ -36,7 +37,7 @@ def purge_dupes(playlist_id, official_artist=None, threshold=90)
         track = item['track']
         if not track: continue
         title = track['name'].strip().lower()
-        artists = [a['name']/strop() for a in track['artists']]
+        artists = [a['name'].strip() for a in track['artists']]
         main_artist = artists[0] if artists else None
 
         if official_artist:
@@ -64,4 +65,4 @@ if __name__ == "__main__":
         exit()
 
     artist = input("Enter the official artist name (or leave blank to skip): ").strip() or None
-    purge_spotify_dupes(playlist_id, official_artist=artist)
+    purge_dupes(playlist_id, official_artist=artist)
