@@ -33,13 +33,6 @@ def purge_dupes(playlist_id, official_artist=None, threshold=90):
 
     print(f"Found {len(items)} tracks in the playlist.")
 
-    # for item in items:
-    #     track = item['track']
-    #     if not track: continue
-    #     title = track['name'].strip().lower()
-    #     artists = [a['name'].strip() for a in track['artists']]
-    #     main_artist = artists[0] if artists else None
-
     for item in items:
         track = item['track']
         if not track:
