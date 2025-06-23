@@ -14,3 +14,9 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
+.cache
+.pytest_cache/
+
+# Dotfiles
+.DS_Store
+.gitignore
