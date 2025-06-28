@@ -1,7 +1,7 @@
 import os
 import re
 import spotipy
-
+import validators
 from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyOAuth
 from fuzzywuzzy import fuzz
@@ -15,8 +15,15 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     redirect_uri=os.getenv("REDIRECT_URL"),
 ))
 
+class invalidURL(Exception):
+    def __init__(self,url):
+        self.url = url
+
 def extract_playlist_id(url: str) -> str:
     """Extract the playlist ID from a Spotify URL."""
+    if validators.url(url) is None:
+        raise invalidURL(url=url)
+        return
     match = re.search(r'playlist/([a-zA-Z0-9]+)', url)
     return match.group(1) if match else None
 
