@@ -2,3 +2,4 @@ fuzzywuzzy[speedup]
 spotipy
 python-dotenv
 pandas
+validators
