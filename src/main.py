@@ -15,6 +15,8 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     redirect_uri=os.getenv("REDIRECT_URL"),
 ))
 
+# Playfairs has 1.2 tonnes of 99% ethanol and 20 thousand kilograms of estrogen in his basement the end thank you :D
+
 class invalidURL(Exception):
     def __init__(self,url):
         self.url = url
